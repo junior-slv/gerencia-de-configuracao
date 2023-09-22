@@ -3,7 +3,7 @@ name: ESLint
 on:
   push:
     branches:
-      - main # altere para a branch principal do seu projeto
+      - main
 
 jobs:
   lint:
@@ -17,13 +17,13 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: 14 
+        node-version: 16
 
     - name: Install Dependencies
-      run: npm install 
+      run: npm install
 
     - name: Run ESLint
-      run: npm run lint
+      run: npm run lint 
 
     - name: Save ESLint Results
       if: always()
@@ -31,4 +31,3 @@ jobs:
       with:
         name: eslint-results
         path: .eslint*
-
