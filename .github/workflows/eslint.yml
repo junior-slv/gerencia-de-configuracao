@@ -1,0 +1,34 @@
+name: ESLint
+
+on:
+  push:
+    branches:
+      - main # altere para a branch principal do seu projeto
+
+jobs:
+  lint:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14 
+
+    - name: Install Dependencies
+      run: npm install 
+
+    - name: Run ESLint
+      run: npm run lint
+
+    - name: Save ESLint Results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: eslint-results
+        path: .eslint*
+
