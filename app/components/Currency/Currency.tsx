@@ -40,7 +40,7 @@ const Currency = () => {
 
   return (
     <div
-      className="h-screen bg-gray-500 text-white flex items-center justify-center"
+      className="h-screen bg-[#252525] text-white flex items-center justify-center"
     >
       <div className="p-5 shadow-lg rounded-lg flex flex-col">
         <div className="">
@@ -49,9 +49,9 @@ const Currency = () => {
         </div>
 
         <div className="main-screen-bottom flex flex-col">
-          <div className="main-screen-bottom-left">
+          <div className="main-screen-bottom-left p-2">
             <select
-              className="text-black bg-white"
+              className="text-black bg-white m-2"
               value={currencyFrom}
               onChange={(e) => {
                 setCurrencyFrom(e.target.value);
@@ -77,10 +77,9 @@ const Currency = () => {
               <i className="bx bx-right-arrow-alt"></i>
             </p>
           </div>
-          <div className="main-screen-bottom-right">
-            <label htmlFor="cars"></label>
+          <div className="main-screen-bottom-right p-2">
             <select
-              className="text-black bg-white"
+              className="text-black bg-white m-2"
               value={currencyTo}
               onChange={(e) => {
                 setCurrencyTo(e.target.value);
@@ -102,6 +101,7 @@ const Currency = () => {
             />
           </div>
         </div>
+        <span className={loading ? "block" : "hidden"}>Loading...</span>
       </div>
     </div>
   );
